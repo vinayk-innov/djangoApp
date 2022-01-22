@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block head %}
+
+<title>H-EAPR Patient Homepage</title>
+
+{% endblock %}
+
+{% block body %}
+
+
+<section class="page-title bg-2">
+	<div class="overlay"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="block text-center">
+					<h1 class="text-capitalize mb-5 text-lg">Patient</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<!-- portfolio -->
+<section class="section doctors">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-6 text-center">
+				<div class="section-title">
+					<h5 class="text-md">Your Health Dashboard</h5>
+					<div class="divider mx-auto my-4"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-12 text-center  mb-5">
+			<div data-toggle="buttons">
+				<div class="btn">
+					<input type="button" class="btn btn-main" value="All Registered Doctors" id='add_meds' onclick="location.href='/alldoctors'">
+				</div>
+				<div class="btn">
+					<form action="/patient/info/-99" action = "POST">
+						<input type="button" class="btn btn-main" value="My Medical Profile" id='add_meds' onclick="location.href='/patient/info'">
+					</form>	
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}

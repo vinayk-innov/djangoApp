@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block head %}
+
+<title>H-EAPR Doctor Homepage</title>
+
+{% endblock %}
+
+{% block body %}
+
+<section class="page-title bg-1">
+	<div class="overlay"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="block text-center">
+					<h1 class="text-capitalize mb-5 text-lg">Doctor</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section doctors">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-6 text-center">
+				<div class="section-title">
+					<h5 class="text-md">Your Dashboard</h5>
+					<div class="divider mx-auto my-4"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-12 text-center  mb-5">
+			<div data-toggle="buttons">
+
+				<div class="btn">
+					<input type="button" class="btn btn-main" value="All Registered Patients" id='add_meds' onclick="location.href='/allpatients'">
+				</div>
+
+				<div class="btn">
+					<input type="button" class="btn btn-main" value="All Medicines" id='add_meds' onclick="location.href='/allmedicines'">
+				</div>
+
+				<div class="btn">
+					<form action='/doctor/info' action="POST">
+						<input type="button" class="btn btn-main" value="My Profile" id='add_meds' onclick="location.href='/doctor/info'">
+					</form>
+				</div>
+
+				<div class="btn">
+					<form action='/doctor/info' action="POST">
+						<input type="button" class="btn btn-main" value="Prescribe a Patient" id='add_meds' onclick="location.href='/prescription/add'">
+					</form>
+				</div>
+
+			</div>
+		</div>
+		<img src="data:image/png;base64, {{preschart|safe}}" alt="Image not loaded">
+	</div>
+</section>
+
+{% endblock %}

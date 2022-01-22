@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+
+{% block head %}
+
+<title>H-EAPR Patient Update Medical Information</title>
+
+{% endblock %}
+
+{% block body %}
+
+<section class="page-title bg-2">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="block text-center">
+                    <h1 class="text-capitalize mb-5 text-lg">Patient</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% csrf_token %}
+<section class="contact-form-wrap section">
+    <div class="container">
+
+        <div class="row justify-content-center">
+			<div class="col-lg-6 text-center">
+				<div class="section-title">
+					<h5 class="text-md">Update Your Medical Information</h5>
+					<div class="divider mx-auto my-4"></div>
+				</div>
+			</div>
+		</div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <form id="contact-form" class="contact__form " method="post" action="/patient/update/medicalinfo/">
+                    {% csrf_token %}
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <h5 class="mb-2">&nbsp;Name</h5>
+                                    <input name="patientId" id="patientId" type="Text" class="form-control" value={{patient_name}} readonly>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <h5 class="mb-2">&nbsp;Height [Foot]</h5>
+                                    <input name="height" id="height" type="number" class="form-control" value="{{medicalinfo.height}}">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <h5 class="mb-2">&nbsp;Weight [Kg]</h5>
+                                    <input name="weight" id="weight" type="number" class="form-control" value="{{medicalinfo.weight}}">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <h5 class="mb-2">&nbsp;Choose a Blood Group</h5>
+                                    <select name="bloodType" id="bloodType" width=100px class="form-control" value="{{medicalinfo.bloodType}}">
+                                        <option value="A+">A+</option>
+                                        <option value="A-">A-</option>
+                                        <option value="B+">B+</option>
+                                        <option value="B-">B-</option>
+                                        <option value="AB+">AB+</option>
+                                        <option value="AB-">AB-</option>
+                                        <option value="O+">O+</option>
+                                        <option value="O-">O-</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <h5 class="mb-2">&nbsp;Allergy</h5>
+                                    <input name="allergy" id="allergy" type="Text" class="form-control" value="{{medicalinfo.allergy}}">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <h5 class="mb-2">Pre-medic Conditions</h5>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 text-center">
+                                <div class="form-group">
+                                    <label class="mb-2" for="alzheimer">Alzheimer :&nbsp;&nbsp;</label>
+                                    <input type="checkbox" id="alzheimer" name="alzheimer" value="{{medicalinfo.alzheimer}}">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 text-center">
+                                <div class="form-group">
+                                    <label class="mb-2" for="asthma">Asthma :&nbsp;&nbsp;</label>
+                                    <input type="checkbox" id="asthma" name="asthma" value="{{medicalinfo.asthma}}">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 text-center">
+                                <div class="form-group">
+                                    <label class="mb-2" for="diabetes">Diabetes :&nbsp;&nbsp;</label>
+                                    <input type="checkbox" id="diabetes" name="diabetes" value="{{medicalinfo.diabetes}}">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 text-center">
+                                <div class="form-group">
+                                    <label class="mb-2" for="stroke">Stroke :&nbsp;&nbsp;</label>
+                                    <input type="checkbox" id="stroke" name="stroke" value="{{medicalinfo.stroke}}">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 my-4">
+                                <div class="form-group">
+                                    <h5 class="mb-2">&nbsp;Medical History</h5>
+                                    <input name="medicalHistory" id="medicalHistory" type="Text" class="form-control" value="{{medicalinfo.medical_history}}">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="text-center my-4">
+                        <input class="btn btn-main btn-round-full" name="submit" type="submit"
+                            value="Update Medical Information"></input>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
